@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
-import {ExcelExportService} from '../../shared/services/excel-export.service';
 import {UserData} from '../../models/user-data';
 import {ExportConfig} from '../../shared/models/export-config';
 import {RouterLink} from '@angular/router';
+import {ExcelExportService} from '../../shared/service/excel-export.service';
 
 @Component({
   selector: 'app-export-with-library-component',
