@@ -1,27 +1,57 @@
-# TableExcelExport
+# Angular - Export Excel
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.10.
+### `exportJsonToExcel` Fonksiyonu Dokümantasyonu
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Fonksiyon: `exportJsonToExcel<T>(config: ExportConfig<T>): void`
 
-## Code scaffolding
+**Açıklama**:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+JSON formatındaki verileri Excel dosyası olarak dışa aktarmak için kullanılan bir fonksiyondur. Bu fonksiyon, verilen verileri, belirtilen başlıklarla birlikte bir Excel dosyası olarak oluşturur ve kullanıcının bilgisayarına indirilmesini sağlar. Veri analizi ve raporlama gibi senaryolar için faydalıdır.
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Parametreler:
 
-## Running unit tests
+- **`config`**: `ExportConfig<T>`
+    - Dışa aktarım işlemi için gerekli yapılandırma ayarlarını içeren bir nesne.
+    - **`headers`**: `string[]`
+        - Excel dosyasındaki başlıkları tanımlayan bir dizi. Bu başlıklar, verilerin hangi alanlarının görüneceğini belirtir.
+    - **`data`**: `T[]`
+        - Excel dosyasına dönüştürülecek veri dizisi. Her bir nesne, bir satırı temsil eder ve anahtarlar CSV başlıkları olarak kullanılacaktır.
+    - **`fileName`**: `string`
+        - Kullanıcının bilgisayarında kaydedilecek Excel dosyasının adı.
+    - **`sheetName`**: `string` (Opsiyonel)
+        - Excel dosyasındaki sayfanın adı; varsayılan değeri `'Sheet1'` dir.
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Kullanım Örneği:
 
-## Running end-to-end tests
+```tsx
+const config = {
+  headers: ['Name', 'Age', 'City'],
+  data: [
+    { Name: 'Alice', Age: 30, City: 'New York' },
+    { Name: 'Bob', Age: 25, City: 'Los Angeles' }
+  ],
+  fileName: 'MyData',
+  sheetName: 'People'
+};
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+exportJsonToExcel(config);
+```
 
-## Further help
+---
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Geri Dönüş Değeri:
+
+- **void**: Bu fonksiyon, herhangi bir değer döndürmez. Dışa aktarma işlemi tamamlandığında kullanıcıya bir Excel dosyası indirilir.
+
+---
+
+### Kullanım Notları:
+
+- Bu fonksiyon, `xlsx` kütüphanesi kullanılarak JSON verilerini Excel formatına dönüştürmek için tasarlanmıştır.
+- Fonksiyonu kullanmadan önce, projenize `xlsx` kütüphanesinin eklenmiş olması gerektiğini unutmayın.
+- `data` parametresindeki nesnelerin anahtarları, `headers` dizisindeki başlıklarla eşleşmelidir; aksi takdirde veriler doğru bir şekilde gösterilmeyecektir.
