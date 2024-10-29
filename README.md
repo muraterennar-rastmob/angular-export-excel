@@ -55,3 +55,5 @@ exportJsonToExcel(config);
 - Bu fonksiyon, `xlsx` kütüphanesi kullanılarak JSON verilerini Excel formatına dönüştürmek için tasarlanmıştır.
 - Fonksiyonu kullanmadan önce, projenize `xlsx` kütüphanesinin eklenmiş olması gerektiğini unutmayın.
 - `data` parametresindeki nesnelerin anahtarları, `headers` dizisindeki başlıklarla eşleşmelidir; aksi takdirde veriler doğru bir şekilde gösterilmeyecektir.
+
+  [StackBlitz](https://stackblitz.com/~/github.com/muraterennar-rastmob/angular-export-excel?file=src/app/pages/home/home.component.ts)
