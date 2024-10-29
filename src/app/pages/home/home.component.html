@@ -1,0 +1,13 @@
+<main class="h-screen bg-gray-50 flex justify-center items-center">
+  <section class="flex flex-col gap-12">
+    <div class="bg-white rounded-full shadow-lg hover:shadow-2xl w-6/12 mx-auto p-12 h-auto overflow-hidden transition-all duration-300">
+      <img [src]="homeExcelLogo" class="w-full h-full mx-auto" alt="excelLogo">
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 px-6">
+      <button type="button" (click)="goToExcel()" class="bg-green-500 text-white rounded-lg py-4 hover:shadow-lg hover:bg-green-600 transition-all duration-300">
+        <span class="text-xl font-medium">Excel With Library</span>
+      </button>
+    </div>
+  </section>
+</main>

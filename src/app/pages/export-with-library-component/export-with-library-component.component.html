@@ -1,0 +1,47 @@
+<nav class="w-full p-5 bg-green-500 flex justify-start items-center gap-x-12">
+  <div class="font-medium text-white text-xl">
+    <a routerLink="/export-excel">Excel Export</a>
+  </div>
+  <div class="flex-1">
+    <a routerLink="/home" class="text-white">Home</a>
+  </div>
+</nav>
+
+<div class="container mx-auto mt-12">
+  <div class="flex justify-end items-center mb-6">
+    <button class="px-4 py-1 bg-green-500 text-white font-medium rounded" (click)="exportToExcel()">Export to Excel
+    </button>
+  </div>
+
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Name Column -->
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef> Name</th>
+      <td mat-cell *matCellDef="let element"> {{ element.Name }}</td>
+    </ng-container>
+
+    <!-- Age Column -->
+    <ng-container matColumnDef="Age">
+      <th mat-header-cell *matHeaderCellDef> Age</th>
+      <td mat-cell *matCellDef="let element"> {{ element.Age }}</td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="Email">
+      <th mat-header-cell *matHeaderCellDef> Email</th>
+      <td mat-cell *matCellDef="let element"> {{ element.Email }}</td>
+    </ng-container>
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button>Edit</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
