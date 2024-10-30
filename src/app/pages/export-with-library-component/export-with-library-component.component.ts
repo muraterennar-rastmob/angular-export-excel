@@ -4,7 +4,7 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {UserData} from '../../models/user-data';
 import {ExportConfig} from '../../shared/models/export-config';
 import {RouterLink} from '@angular/router';
-import {ExcelExportService} from '../../shared/services/excel-export.service';
+import {ExcelExportService} from '../../shared/service/excel-export.service';
 
 @Component({
   selector: 'app-export-with-library-component',
